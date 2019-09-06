@@ -15,10 +15,13 @@
 
 // Version
 var version = "1.0 FINAL";
-
-// Frame Rate
 var fps = 60;
-frameRate(fps);
+
+// Setup
+function setup() {
+	createCanvas(400, 400)
+	frameRate(fps);
+}
 
 // What keys (on keyboard) are currently pressed (used for tracking multiple key presses simultaneously)
 var keys = [];
@@ -127,10 +130,10 @@ var players = {
         },
         
         keys: {
-            up: UP,
-            down: DOWN,
-            left: LEFT,
-            right: RIGHT,
+            up: 38, // Up arrow
+            down: 40, // Down arrow
+            left: 37, // Left arrow
+            right: 39, // Right arrow
             standard: 46,
             special: 44
         }
@@ -2515,7 +2518,7 @@ var maps = {
                 fill(11, 32, 46,250);
                 rect(0, 0, width, height);
                 
-                var font= createFont('IMPACT');
+                var font = 'IMPACT';
                 textFont(font,34);
                 
                 // Screen
@@ -3372,7 +3375,7 @@ var drawBanner = function(string, y) {
     fill(0, 0, 0); // Set the banner color
     rect(0, y, width, 50); // Draw the banner
     textAlign(CENTER, CENTER); // Align text
-    textFont(createFont("impact"), 35); // Set font
+    textFont("impact", 35); // Set font
     fill(245, 245, 245, 255 - bannerBrightness); // Set the text color
     text(string, 200, y + 25); // Write the message
 };
@@ -3724,7 +3727,7 @@ var smashBall= function(x,y){
     rect(191+x,175+y,9,49);
 };
 var smashLogo = function() {
-    var font= createFont('TIMES');
+    var font = 'TIMES';
     textFont(font,56);
     textAlign(CENTER, CENTER);
     
@@ -3800,7 +3803,7 @@ var titleScreen = function() {
         setGameState(2);
     }
     
-    textFont(createFont("impact"), 20);
+    textFont("impact", 20);
     fill(0, 0, 0, 150);
     textAlign(RIGHT, BOTTOM);
     text("v" + version, 390, 390);
@@ -3941,7 +3944,7 @@ var characterSelection = function() {
     drawSprite(8, 0, 365, 165, 3);
     
     textAlign(CENTER, CENTER);
-    textFont(createFont("impact"), 20);
+    textFont("impact", 20);
     fill(255, 255, 255);
     text("MARIO", 52, 103);
     text("LINK", 152, 103);
@@ -4244,7 +4247,7 @@ var mapSelection = function() {
     fill(205, 35, 35);
     triangle(50, 10, 50, 40, 110, 10);
     
-    textFont(createFont("impact"), 10);
+    textFont("impact", 10);
     fill(255, 255, 255);
     text("GO BACK", 65, 25);
     
@@ -4311,7 +4314,7 @@ var mapSelection = function() {
     fill(0, 0, 0);
     rect(0, 245, 200, 35);
     fill(255, 255, 255);
-    textFont(createFont("times"), 20);
+    textFont("times", 20);
     text(getMapName(ms).toUpperCase(), 100, 262.5);
     
     // Cursor
@@ -4956,7 +4959,7 @@ var battle = function() {
 };
 var winner = function() {
     if (gameTimer < 200) {
-        textFont(createFont("impact"), 100);
+        textFont("impact", 100);
         textAlign(CENTER, CENTER);
         
         if (getGameRulesMode() === 1) {
@@ -5079,10 +5082,8 @@ draw = function() {
 
 // Record key pressed
 keyPressed = function() {
-    keys[key.code] = true;
     keys[keyCode] = true;
 };
-keyReleased = function() { 
-  keys[key.code] = false; 
+keyReleased = function() {
   keys[keyCode] = false; 
 };
