@@ -56,12 +56,12 @@ var players = {
 		},
 
 		keys: {
-			up: 119,
-			down: 115,
-			left: 97,
-			right: 100,
-			standard: 101,
-			special: 113
+			up: 87,
+			down: 83,
+			left: 65,
+			right: 68,
+			standard: 69,
+			special: 81
 		}
 	},
 	two: {
@@ -81,12 +81,12 @@ var players = {
 		},
 
 		keys: {
-			up: 116,
-			down: 103,
-			left: 102,
-			right: 104,
-			standard: 121,
-			special: 114
+			up: 84,
+			down: 71,
+			left: 70,
+			right: 72,
+			standard: 89,
+			special: 82
 		}
 	},
 	three: {
@@ -106,12 +106,12 @@ var players = {
 		},
 
 		keys: {
-			up: 105,
-			down: 107,
-			left: 106,
-			right: 108,
-			standard: 111,
-			special: 117
+			up: 73,
+			down: 75,
+			left: 74,
+			right: 76,
+			standard: 79,
+			special: 85
 		}
 	},
 	four: {
@@ -135,8 +135,8 @@ var players = {
 			down: 40, // Down arrow
 			left: 37, // Left arrow
 			right: 39, // Right arrow
-			standard: 46,
-			special: 44
+			standard: 190,
+			special: 188
 		}
 	}
 };
@@ -3355,13 +3355,13 @@ var anyAttackKeyIsPressedOnce = function(player) {
 
 // Modifies the player x, y values by any given amount
 var movePlayer = function(player, direction, amount) {
-    if (direction === UP) {
+    if (direction === "UP") {
         setPlayerLoc(player, getPlayerLoc(player)[0], getPlayerLoc(player)[1] - amount);
-    } else if (direction === DOWN) {
+    } else if (direction === "DOWN") {
         setPlayerLoc(player, getPlayerLoc(player)[0], getPlayerLoc(player)[1] + amount);
-    } else if (direction === LEFT) {
+    } else if (direction === "LEFT") {
         setPlayerLoc(player, getPlayerLoc(player)[0] - amount, getPlayerLoc(player)[1]);
-    } else if (direction === RIGHT) {
+    } else if (direction === "RIGHT") {
         setPlayerLoc(player, getPlayerLoc(player)[0] + amount, getPlayerLoc(player)[1]);
     }
 };
@@ -3801,7 +3801,7 @@ var titleScreen = function() {
     textSize(20);
     text("Right-click for Instructions", 200, 315); // Sub text
     smashLogo(); // The logo of the game
-    smashBall(119, -62);
+    smashBall(119, -66);
     
     if (mouseIsPressed && mouseButton === RIGHT) {
         setGameState(1);
@@ -3876,33 +3876,33 @@ var instructions = function() {
     
 	textAlign(LEFT, TOP);
 	noStroke();
-    drawLetter("Q", 25, 160, 0, 113);
-    drawLetter("W", 43, 160, 1, 119);
-    drawLetter("E", 65, 160, 2, 101);
-    drawLetter("A", 25, 181, 1, 97);
-    drawLetter("S", 45, 181, 1, 115);
-    drawLetter("D", 65, 181, 1, 100);
+    drawLetter("Q", 25, 160, 0, 81);
+    drawLetter("W", 43, 160, 1, 87);
+    drawLetter("E", 65, 160, 2, 69);
+    drawLetter("A", 25, 181, 1, 65);
+    drawLetter("S", 45, 181, 1, 83);
+    drawLetter("D", 65, 181, 1, 68);
     
-    drawLetter("R", 125, 160, 0, 114);
-    drawLetter("T", 145, 160, 1, 116);
-    drawLetter("Y", 165, 160, 2, 121);
-    drawLetter("F", 125, 181, 1, 102);
-    drawLetter("G", 145, 181, 1, 103);
-    drawLetter("H", 165, 181, 1, 104);
+    drawLetter("R", 125, 160, 0, 82);
+    drawLetter("T", 145, 160, 1, 84);
+    drawLetter("Y", 165, 160, 2, 89);
+    drawLetter("F", 125, 181, 1, 70);
+    drawLetter("G", 145, 181, 1, 71);
+    drawLetter("H", 165, 181, 1, 72);
     
-    drawLetter("U", 225, 160, 0, 117);
-    drawLetter("I", 247, 160, 1, 105);
-    drawLetter("O", 265, 160, 2, 111);
-    drawLetter("J", 225, 181, 1, 106);
-    drawLetter("K", 245, 181, 1, 107);
-    drawLetter("L", 265, 181, 1, 108);
+    drawLetter("U", 225, 160, 0, 85);
+    drawLetter("I", 247, 160, 1, 73);
+    drawLetter("O", 265, 160, 2, 79);
+    drawLetter("J", 225, 181, 1, 74);
+    drawLetter("K", 245, 181, 1, 75);
+    drawLetter("L", 265, 181, 1, 76);
     
-    drawLetter("<", 325, 160, 0, 44);
+    drawLetter("<", 325, 160, 0, 188);
     drawLetter("↑", 345, 160, 1, 38);
-    drawLetter(">", 365, 160, 2, 46);
-    drawLetter("←", 321, 181, 0, 37);
+    drawLetter(">", 365, 160, 2, 190);
+    drawLetter("←", 321, 181, 1, 37);
     drawLetter("↓", 345, 181, 1, 40);
-    drawLetter("→", 361, 181, 2, 39);
+    drawLetter("→", 361, 181, 1, 39);
     
     textAlign(CENTER, CENTER);
     fill(75, 115, 230);
@@ -4034,7 +4034,7 @@ var characterSelection = function() {
     if (chosen >= 2) {
         drawBanner("CLICK 'ENTER' TO CONTINUE", 202);
         
-        if (keys[10]) {
+        if (keys[13]) {
             setPlayerSpriteType(players.one, selection[0]);
             setPlayerSpriteType(players.two, selection[1]);
             setPlayerSpriteType(players.three, selection[2]);
@@ -4102,25 +4102,25 @@ var characterSelection = function() {
         
         if (upIsPressed(allPlayers[i])) {
             if (getPlayerLoc(allPlayers[i])[1] > 0) {
-                movePlayer(allPlayers[i], UP, 2.5);
+                movePlayer(allPlayers[i], "UP", 2.5);
             }
         }
         
         if (downIsPressed(allPlayers[i])) {
             if (getPlayerLoc(allPlayers[i])[1] < 400) {
-                movePlayer(allPlayers[i], DOWN, 2.5);
+                movePlayer(allPlayers[i], "DOWN", 2.5);
             }
         }
         
         if (leftIsPressed(allPlayers[i])) {
             if (getPlayerLoc(allPlayers[i])[0] > 0) {
-                movePlayer(allPlayers[i], LEFT, 2.5);
+                movePlayer(allPlayers[i], "LEFT", 2.5);
             }
         }
         
         if (rightIsPressed(allPlayers[i])) {
             if (getPlayerLoc(allPlayers[i])[0] < 400) {
-                movePlayer(allPlayers[i], RIGHT, 2.5);
+                movePlayer(allPlayers[i], "RIGHT", 2.5);
             }
         }
         
@@ -4741,8 +4741,8 @@ var battle = function() {
                 setPlayerVelocity(allPlayers[i], 0, getPlayerVelocity(allPlayers[i])[1]);
             }
             
-            movePlayer(allPlayers[i], RIGHT, getPlayerVelocity(allPlayers[i])[0]);
-            movePlayer(allPlayers[i], DOWN, getPlayerVelocity(allPlayers[i])[1]);
+            movePlayer(allPlayers[i], "RIGHT", getPlayerVelocity(allPlayers[i])[0]);
+            movePlayer(allPlayers[i], "DOWN", getPlayerVelocity(allPlayers[i])[1]);
         }
     };
     playerManager();
@@ -5095,6 +5095,8 @@ function draw() {
 // Record key pressed
 keyPressed = function() {
 	keys[keyCode] = true;
+
+	print(keyCode)
 };
 keyReleased = function() {
 	keys[keyCode] = false;
