@@ -19,7 +19,7 @@ var fps = 60;
 
 // Setup
 function setup() {
-	createCanvas(400, 400)
+	createCanvas(400, 400);
 	frameRate(fps);
 }
 
@@ -28,117 +28,119 @@ var keys = [];
 
 // Stores game values including: state (current screen), map (level), and rules (settings)
 var game = {
-    state: 0,
-    map: 0,
-    rules: {
-        mode: 0,
-        lives: 3,
-        time: 3
-    }
+	state: 0,
+	map: 0,
+	rules: {
+		mode: 0,
+		lives: 3,
+		time: 3
+	}
 };
+
 // Stores values for each player including: controller (AI, Human or none), character, location, dmage, velocity, lives, size, sprite and color
 var players = {
-    one: {
-        controller: 2,
-        color: [230, 50, 50],
-        
-        character: {
-            sprite: {
-                type: 0,
-                data: 0
-            },
-            size: 20,
-            loc: [200, 200],
-            velocity: [0, 0],
-            lives: 5,
-            damage: 0
-        },
-        
-        keys: {
-            up: 119,
-            down: 115,
-            left: 97,
-            right: 100,
-            standard: 101,
-            special: 113
-        }
-    },
-    two: {
-        controller: 0,
-        color: [75, 115, 230],
-        
-        character: {
-            sprite: {
-                type: 0,
-                data: 1
-            },
-            size: 20,
-            loc: [0, 0],
-            velocity: [0, 0],
-            lives: 5,
-            damage: 0
-        },
-        
-        keys: {
-            up: 116,
-            down: 103,
-            left: 102,
-            right: 104,
-            standard: 121,
-            special: 114
-        }
-    },
-    three: {
-        controller: 0,
-        color: [230, 220, 60],
-        
-        character: {
-            sprite: {
-                type: 0,
-                data: 2
-            },
-            size: 20,
-            loc: [0, 0],
-            velocity: [0, 0],
-            lives: 5,
-            damage: 0
-        },
-        
-        keys: {
-            up: 105,
-            down: 107,
-            left: 106,
-            right: 108,
-            standard: 111,
-            special: 117
-        }
-    },
-    four: {
-        controller: 0,
-        color: [80, 165, 40],
-        
-        character: {
-            sprite: {
-                type: 0,
-                data: 2
-            },
-            size: 20,
-            loc: [0, 0],
-            velocity: [0, 0],
-            lives: 5,
-            damage: 0
-        },
-        
-        keys: {
-            up: 38, // Up arrow
-            down: 40, // Down arrow
-            left: 37, // Left arrow
-            right: 39, // Right arrow
-            standard: 46,
-            special: 44
-        }
-    }
+	one: {
+		controller: 2,
+		color: [230, 50, 50],
+
+		character: {
+			sprite: {
+				type: 0,
+				data: 0
+			},
+			size: 20,
+			loc: [200, 200],
+			velocity: [0, 0],
+			lives: 5,
+			damage: 0
+		},
+
+		keys: {
+			up: 119,
+			down: 115,
+			left: 97,
+			right: 100,
+			standard: 101,
+			special: 113
+		}
+	},
+	two: {
+		controller: 0,
+		color: [75, 115, 230],
+
+		character: {
+			sprite: {
+				type: 0,
+				data: 1
+			},
+			size: 20,
+			loc: [0, 0],
+			velocity: [0, 0],
+			lives: 5,
+			damage: 0
+		},
+
+		keys: {
+			up: 116,
+			down: 103,
+			left: 102,
+			right: 104,
+			standard: 121,
+			special: 114
+		}
+	},
+	three: {
+		controller: 0,
+		color: [230, 220, 60],
+
+		character: {
+			sprite: {
+				type: 0,
+				data: 2
+			},
+			size: 20,
+			loc: [0, 0],
+			velocity: [0, 0],
+			lives: 5,
+			damage: 0
+		},
+
+		keys: {
+			up: 105,
+			down: 107,
+			left: 106,
+			right: 108,
+			standard: 111,
+			special: 117
+		}
+	},
+	four: {
+		controller: 0,
+		color: [80, 165, 40],
+
+		character: {
+			sprite: {
+				type: 0,
+				data: 2
+			},
+			size: 20,
+			loc: [0, 0],
+			velocity: [0, 0],
+			lives: 5,
+			damage: 0
+		},
+
+		keys: {
+			up: 38, // Up arrow
+			down: 40, // Down arrow
+			left: 37, // Left arrow
+			right: 39, // Right arrow
+			standard: 46,
+			special: 44
+		}
+	}
 };
+
 // Stores the function to draw every sprite in the game (total of 140)
 var sprites = {
     // Stores values for how to draw the cursors
@@ -2508,6 +2510,7 @@ var sprites = {
         }
     }
 };
+
 // Stores the function to draw every map in the game (total of 3)
 var maps = {
     pokemon: {
@@ -3568,6 +3571,7 @@ var drawIndicator = function(player) {
     drawSprite(getPlayerSpriteType(player), getPlayerSpriteData(player), x + getPlayerSpriteCollision(player)[0] / 4, y + getPlayerSpriteCollision(player)[1] / 4, 1);
 };
 
+
 // List of every projectile
 var projectiles = [undefined, undefined, undefined, undefined];
 // Projectile function
@@ -3661,6 +3665,7 @@ projectile.prototype.collision = function(x, y, width, height) {
     return false;
 };
 
+
 // Functions to get values from the maps object
 var getMapPlatforms = function(map, x, y) {
     var platforms = [];
@@ -3713,6 +3718,7 @@ var getMapName = function(map) {
         return "Random";
     }
 };
+
 
 // Used to draw the logo
 var smashBall= function(x,y){
@@ -3777,7 +3783,7 @@ var selection = [];
 var cursorX = 100; var cursorY = 160;
 var ms = 0;
 var anim = [];
-var setup = false;
+var setup1 = false;
 var lastHitBy = [4, 4, 4, 4];
 var score = [0, 0, 0, 0];
 var cooldownStandard = [0, 0, 0, 0];
@@ -3808,6 +3814,7 @@ var titleScreen = function() {
     textAlign(RIGHT, BOTTOM);
     text("v" + version, 390, 390);
 };
+
 var instructions = function() {
     background(245, 245, 245);
     fill(0, 0, 0);
@@ -3912,6 +3919,7 @@ var instructions = function() {
         setGameState(2);
     }
 };
+
 var characterSelection = function() {
     background(245, 245, 245);
     
@@ -4035,7 +4043,7 @@ var characterSelection = function() {
             
             if (getGameMap() === 0) {
                 setGameState(3);
-                setup = false;
+                setup1 = false;
             } else {
                 setGameState(4);
             }
@@ -4195,6 +4203,7 @@ var characterSelection = function() {
         }
     }
 };
+
 var mapSelection = function() {
     var btns = [];
     var addButton = function(x, y, width, length, map) {
@@ -4341,10 +4350,11 @@ var mapSelection = function() {
     }
     drawSprite(0, 0, cursorX, cursorY, radius);
 };
+
 var battle = function() {
     // Setup
     // TODO random maps: 4, 5, 6
-    while(setup === false) {
+    while(setup1 === false) {
         setGameRulesTime(getGameRulesTime() * 60);
         for (var p = 0; p < allPlayers.length; p++) {
             if (getPlayerSpriteType(allPlayers[p]) === 8) {
@@ -4381,7 +4391,7 @@ var battle = function() {
         setPlayerLoc(players.two, getMapSpawnsX(getGameMap())[1], getMapSpawnsY(getGameMap())[1]);
         setPlayerLoc(players.three, getMapSpawnsX(getGameMap())[2], getMapSpawnsY(getGameMap())[2]);
         setPlayerLoc(players.four, getMapSpawnsX(getGameMap())[3], getMapSpawnsY(getGameMap())[3]);
-        setup = true;
+        setup1 = true;
     }
     
     background(255, 255, 255);
@@ -4957,6 +4967,7 @@ var battle = function() {
         }
     }
 };
+
 var winner = function() {
     if (gameTimer < 200) {
         textFont("impact", 100);
@@ -5064,26 +5075,26 @@ var winner = function() {
     }
 };
 
-draw = function() {
-    if (getGameState() === 0) {
-        titleScreen();
-    } else if (getGameState() === 1) {
-        instructions();
-    } else if (getGameState() === 2) {
-        characterSelection();
-    } else if (getGameState() === 3) {
-        mapSelection();
-    } else if (getGameState() === 4) {
-        battle();
-    } else if (getGameState() === 5) {
-        winner();
-    }
-};
+function draw() {
+	if (getGameState() === 0) {
+		titleScreen();
+	} else if (getGameState() === 1) {
+		instructions();
+	} else if (getGameState() === 2) {
+		characterSelection();
+	} else if (getGameState() === 3) {
+		mapSelection();
+	} else if (getGameState() === 4) {
+		battle();
+	} else if (getGameState() === 5) {
+		winner();
+	}
+}
 
 // Record key pressed
 keyPressed = function() {
-    keys[keyCode] = true;
+	keys[keyCode] = true;
 };
 keyReleased = function() {
-  keys[keyCode] = false; 
+	keys[keyCode] = false;
 };
