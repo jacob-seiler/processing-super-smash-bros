@@ -3874,44 +3874,45 @@ var instructions = function() {
         text(letter, x, y);
     };
     
-    textAlign(LEFT, UP);
-    drawLetter("Q", 25, 176, 0, 113);
-    drawLetter("W", 43, 176, 1, 119);
-    drawLetter("E", 65, 176, 2, 101);
-    drawLetter("A", 25, 197, 1, 97);
-    drawLetter("S", 45, 197, 1, 115);
-    drawLetter("D", 65, 197, 1, 100);
+	textAlign(LEFT, TOP);
+	noStroke();
+    drawLetter("Q", 25, 160, 0, 113);
+    drawLetter("W", 43, 160, 1, 119);
+    drawLetter("E", 65, 160, 2, 101);
+    drawLetter("A", 25, 181, 1, 97);
+    drawLetter("S", 45, 181, 1, 115);
+    drawLetter("D", 65, 181, 1, 100);
     
-    drawLetter("R", 125, 176, 0, 114);
-    drawLetter("T", 145, 176, 1, 116);
-    drawLetter("Y", 165, 176, 2, 121);
-    drawLetter("F", 125, 197, 1, 102);
-    drawLetter("G", 145, 197, 1, 103);
-    drawLetter("H", 165, 197, 1, 104);
+    drawLetter("R", 125, 160, 0, 114);
+    drawLetter("T", 145, 160, 1, 116);
+    drawLetter("Y", 165, 160, 2, 121);
+    drawLetter("F", 125, 181, 1, 102);
+    drawLetter("G", 145, 181, 1, 103);
+    drawLetter("H", 165, 181, 1, 104);
     
-    drawLetter("U", 225, 176, 0, 117);
-    drawLetter("I", 247, 176, 1, 105);
-    drawLetter("O", 265, 176, 2, 111);
-    drawLetter("J", 225, 197, 1, 106);
-    drawLetter("K", 245, 197, 1, 107);
-    drawLetter("L", 265, 197, 1, 108);
+    drawLetter("U", 225, 160, 0, 117);
+    drawLetter("I", 247, 160, 1, 105);
+    drawLetter("O", 265, 160, 2, 111);
+    drawLetter("J", 225, 181, 1, 106);
+    drawLetter("K", 245, 181, 1, 107);
+    drawLetter("L", 265, 181, 1, 108);
     
-    drawLetter("<", 325, 176, 0, 44);
-    drawLetter("↑", 345, 176, 1, 38);
-    drawLetter(">", 365, 176, 2, 46);
-    drawLetter("←", 321, 196, 0, 37);
-    drawLetter("↓", 345, 196, 1, 40);
-    drawLetter("→", 361, 196, 2, 39);
+    drawLetter("<", 325, 160, 0, 44);
+    drawLetter("↑", 345, 160, 1, 38);
+    drawLetter(">", 365, 160, 2, 46);
+    drawLetter("←", 321, 181, 0, 37);
+    drawLetter("↓", 345, 181, 1, 40);
+    drawLetter("→", 361, 181, 2, 39);
     
     textAlign(CENTER, CENTER);
     fill(75, 115, 230);
-    text("Player 1", 50, 240);
+    text("Player 1", 50, 224);
     fill(230, 50, 50);
-    text("Player 2", 150, 240);
+    text("Player 2", 150, 224);
     fill(80, 165, 40);
-    text("Player 3", 250, 240);
+    text("Player 3", 250, 224);
     fill(230, 220, 60);
-    text("Player 4", 350, 240);
+    text("Player 4", 350, 224);
     
     drawBanner("CLICK TO CONTINUE", 300);
     
